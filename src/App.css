@@ -1,10 +1,59 @@
-.App {
+:root {
+  --body-bg-color: #17082A;
+  --box-bg-color: #210F37;
+  --orange: #F79E44;
+  --pink: #ECBBDA;
+  --purple: #6644B8;
+}
+
+header, main, footer {
+  width: 100%;
+  padding: 0 5rem;
+}
+
+header {
+  background: linear-gradient(rgba(23,8,42,.1),rgba(23,8,42,1)), top center / cover no-repeat url("./../public/assets/wall-1.jpg");
+  background-size: cover;
+}
+
+header h1{
+  font-size: 4rem;
+  margin: 8rem 0;
+  color: var(--orange);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header .search-bar{
+  float: right;
+}
+
+main {
+  margin: 2rem;
+  text-align: center;
+}
+
+article {
+  width: 100%;
+  text-align: center;
+}
+
+#movie-list {
+  display:flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  justify-content: left;
+  gap: 1.6rem;
+}
+
+.movie-card{
+  flex: 0 0 300px;
+  height: 350px;
+  background-color: blue;
+}
+
+footer {
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,20 +62,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
