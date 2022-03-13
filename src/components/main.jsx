@@ -5,7 +5,7 @@ function Main(){
     return(
         <main>
             <article>
-                {<MovieList />}
+                <MovieList />
             </article>
         </main>
     );
