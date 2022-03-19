@@ -1,53 +1,45 @@
 import { useState, useEffect } from 'react';
 import MovieCard from '../components/movieCard';
-import omdb from '../api/omdb-api';
+//import OMDB from '../api/omdb-api';
+import axios from 'axios'
 
 function Home() {
     const [movies, setMovies] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
 
-  console.log(movies.length)
+    const searchMovies = (title) => {
+        const API_URL = 'http://www.omdbapi.com/?apikey=cfab33fe';
+        axios.get(`${API_URL}&s=marvel`).then(res => {
+            setMovies(res.data.Search)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
 
-  useEffect(() => {
-    const request = omdb('s', '2020')
-    console.log(request)
-  }, [])
+    useEffect(() => {
+        searchMovies('marvel')
+    }, [])
 
-  console.log(movies.length)
     return (
         <>
+            <section className="search-bar">
+                <input name="search" placeholder="Search movies or series" type="search" />
+                <button>
+                    <img src="./search.svg" alt="" />
+                </button>
+            </section>
             <article>
-                <header>
-                    <h2>Movies</h2>
-                </header>
-                {
-                    movies?.length < 0 ? (
-                        <ul id="movie-list">
-                            {
-                                movies.map((movie) => {
-                                    <MovieCard movie={movie} />
-                                })
-                            }
-                        </ul>
-                    ) : (
-                        <p>Movies not found.</p>
-                    )
-                }
-            </article>
-            <article>
-                <header>
-                    <h2>Series</h2>
-                </header>
                 {
                     movies?.length > 0 ? (
                         <ul id="movie-list">
                             {
-                                movies.map((movie) => {
-                                    <MovieCard movie={movie} />
-                                })
+                                movies.map((movie, index) => (
+                                    <MovieCard movie={movie} key={index} />
+                                ))
                             }
                         </ul>
                     ) : (
-                        <p>Series not found.</p>
+                        <p>Movies not found.</p>
                     )
                 }
             </article>

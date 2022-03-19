@@ -1,10 +1,8 @@
 function Sidebar(){
     return (
-        <header id="header">
+        <header className="header">
+            <div id="bg-banner" type="default"></div>
             <h1>Movie app</h1>
-            <section className="search-bar">
-                <input name="search" placeholder="Search movies or series" type="search"/>
-            </section>
         </header>
     );
 }

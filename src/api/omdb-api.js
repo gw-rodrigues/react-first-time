@@ -26,17 +26,22 @@
     callback 	No 		                        <empty>     JSONP callback name.
     v 	        No 		                        1 	        API version (reserved for future use).
 */
-
-function omdb(){
-    const API_URL = 'http://www.omdbapi.com/?apikey=cfab33fe';
-
-    const request = async (type,value) =>{
-        console.log(type,value)
-        const response = await fetch(`${API_URL}&${type}=${value}&plot=full`)
-        const data = await response.json()
-        console.log(data.Search)
-        return data
-    }
-    
+import axios from 'axios'
+const API_URL = 'http://www.omdbapi.com/?apikey=cfab33fe';
+const Request = (id) =>{
+    axios.get(`${API_URL}&i=&plot=full`).then(res => {
+        console.log(res.data)
+    }).catch(err => {
+        console.log(err)
+    })
 }
-export default omdb
+const Search = async (title,type='',year='') =>{
+    let val = []
+   await axios.get(`${API_URL}&s=${title}&stype=${type}&y=${year}`).then(res => {
+        console.log(res.data.Search)
+       return res
+    }).catch(err => {
+       return err
+    })
+}
+export default {Request, Search}

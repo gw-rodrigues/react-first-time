@@ -1,16 +1,15 @@
-function MovieCard({movie}){
-    return (
-            <li>
-                <a className="movie-card" href="/">
-                    <figure>
-                        <img src="/assets/wall-1.jpg" alt="" />
-                    </figure>
-                    <h3>Titulo filme</h3>
-                    <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nostrum optio, minima sequi facilis, quis nobis facere at aliquam, officiis porro? Eveniet culpa consequuntur vitae sapiente repellat cumque sequi doloribus!</p>
-                </a>
-                <a className="movie-type" href="/movies">Movie</a>
-                <a className="movie-year" href="/movies/2022">2022</a>
-            </li>
-    );
-}
+const MovieCard = ({ movie }) => (
+    <li>
+        <a className="movie-card" href={`/movie/${movie.imdbID}`}>
+            <figure>
+                <img src={(movie.Poster === 'N/A') ? 'https://www.cinemahalls.com/wp-content/uploads/2019/10/Picture-Not-Available-1.jpg' : movie.Poster} alt={movie.Title} />
+            </figure>
+            <header>
+                <h3>{movie.Title}</h3>
+            </header>
+        </a>
+        <a className="movie-type" href="/movies">{movie.Type}</a>
+        <a className="movie-year" href="/movies/2022">{movie.Year}</a>
+    </li>
+)
 export default MovieCard;
