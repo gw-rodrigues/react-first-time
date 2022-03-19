@@ -30,6 +30,7 @@ function Home() {
                             e.preventDefault();
                             const term = document.getElementById("search-bar").value;
                             if (term.length > 2) setSearchTerm(term);
+                            if (term.length === 0) setSearchTerm('marvel');
                         }
                     }>
                         <img src="./search.svg" alt="Search" />
@@ -47,7 +48,12 @@ function Home() {
                             }
                         </ul>
                     ) : (
-                        <p>Movies not found.</p>
+                        <div className='no-movies'>
+                            <figure>
+                                <img src="/assets/no-movie.png" alt="No movies found" />
+                            </figure>
+                            <p>Movie not found!</p>
+                        </div>
                     )
                 }
             </article>
