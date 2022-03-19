@@ -157,19 +157,13 @@ article h2{
   background-color: var(--orange);
   color: var(--box-bg-color);
   text-decoration: none;
+  border: 1px solid var(--orange);
   border-radius: 5px;
   text-transform: lowercase;
   transition: all .2s ease-in-out;
   text-align: center;
-  box-shadow: 2px 2px 2px #000;
-}
-.movie-year {
-  transition: all .4s ease-in-out;
-}
-
-.movie-type:hover, .movie-year:hover {
-  background-color: var(--box-bg-color);
-  color: var(--orange);
+  box-shadow: 3px 3px 3px #000;
+  font-weight: bold;
 }
 
 .movie-type {
@@ -178,6 +172,7 @@ article h2{
 
 .movie-year {
   top: 33%;
+  transition: all .4s ease-in-out;
 }
 
 footer {
@@ -213,7 +208,12 @@ footer {
 }
 
 #movie-list li:hover .movie-type, #movie-list li:hover .movie-year {
-  transform: translateX(80px) ;
+  transform: translateX(80px);
+}
+
+.movie-type:hover, .movie-year:hover {
+  background-color: var(--box-bg-color);
+  color: var(--orange);
 }
 
 @media screen and (min-width:800px){

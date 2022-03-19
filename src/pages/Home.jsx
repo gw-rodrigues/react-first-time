@@ -5,11 +5,12 @@ import axios from 'axios'
 
 function Home() {
     const [movies, setMovies] = useState([])
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('marvel')
 
     const searchMovies = (title) => {
+        console.log(title)
         const API_URL = 'http://www.omdbapi.com/?apikey=cfab33fe';
-        axios.get(`${API_URL}&s=marvel`).then(res => {
+        axios.get(`${API_URL}&s=${title}`).then(res => {
             setMovies(res.data.Search)
         }).catch(err => {
             console.log(err)
@@ -17,16 +18,24 @@ function Home() {
     }
 
     useEffect(() => {
-        searchMovies('marvel')
-    }, [])
+        searchMovies(searchTerm)
+    }, [searchTerm])
 
     return (
-        <>
+        <main>
             <section className="search-bar">
-                <input name="search" placeholder="Search movies or series" type="search" />
-                <button>
-                    <img src="./search.svg" alt="" />
-                </button>
+                <form action="/">
+                    <input name="search" id="search-bar" placeholder="Search movies or series" type="search" />
+                    <button type='submit' onClick={
+                        (e) => {
+                            e.preventDefault();
+                            let term = document.getElementById("search-bar").value;
+                            if (term.length > 2) setSearchTerm(term);
+                        }
+                    }>
+                        <img src="./search.svg" alt="Search" />
+                    </button>
+                </form>
             </section>
             <article>
                 {
@@ -43,7 +52,7 @@ function Home() {
                     )
                 }
             </article>
-        </>
+        </main>
     )
 }
 export default Home

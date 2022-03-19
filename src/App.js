@@ -14,14 +14,12 @@ import './App.css';
 const App = () => (
   <Router>
     <Header />
-    <main>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/movie/:id' element={<Movie />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
-    </main>
     <Footer />
   </Router>
 )
