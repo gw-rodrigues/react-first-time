@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import MovieCard from '../components/movieCard';
-//import OMDB from '../api/omdb-api';
+import OMDB_URL from '../api/omdb-api';
 import axios from 'axios'
 
 function Home() {
@@ -9,8 +9,7 @@ function Home() {
 
     const searchMovies = (title) => {
         console.log(title)
-        const API_URL = 'http://www.omdbapi.com/?apikey=cfab33fe';
-        axios.get(`${API_URL}&s=${title}`).then(res => {
+        axios.get(`${OMDB_URL}&s=${title}`).then(res => {
             setMovies(res.data.Search)
         }).catch(err => {
             console.log(err)
@@ -29,7 +28,7 @@ function Home() {
                     <button type='submit' onClick={
                         (e) => {
                             e.preventDefault();
-                            let term = document.getElementById("search-bar").value;
+                            const term = document.getElementById("search-bar").value;
                             if (term.length > 2) setSearchTerm(term);
                         }
                     }>
