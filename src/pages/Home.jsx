@@ -8,7 +8,6 @@ function Home() {
     const [searchTerm, setSearchTerm] = useState('marvel')
 
     const searchMovies = (title) => {
-        console.log(title)
         axios.get(`${OMDB_URL}&s=${title}`).then(res => {
             setMovies(res.data.Search)
         }).catch(err => {

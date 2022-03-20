@@ -25,13 +25,15 @@ const wallpapers = [
     'https://images.hdqwalls.com/download/the-lost-city-2022-s4-2880x1800.jpg'
 ]
 function Sidebar() {
-    const [banner, setBanner] = useState('./assets/wall-1.jpg');
+    const [banner, setBanner] = useState('/assets/wall-1.jpg');
+
     useEffect(() => {
         setTimeout(() => {
             let randomNumber = Math.floor(Math.random() * wallpapers.length);
             setBanner(wallpapers[randomNumber])
         }, 10000)
     }, [banner])
+
     return (
         <header className="header">
             <div id="bg-banner" style={{
