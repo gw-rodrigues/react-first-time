@@ -5,7 +5,6 @@ self-learning the tools i need for this app.
 
 Before continue the course.
 </p>
-
-![react-first-time-01](https://user-images.githubusercontent.com/92688864/162404611-ed4e9567-f374-4222-9364-f64eddebf1e7.gif)
-![react-first-time-02](https://user-images.githubusercontent.com/92688864/162404655-1ca03956-0ecd-4dd7-8918-2a10e5ebd283.gif)
-![react-first-time-03](https://user-images.githubusercontent.com/92688864/162404678-a3a60385-57f6-4dd0-a7c7-02b7e68d9ffc.gif)
+![react-first-time-01-compressed](https://user-images.githubusercontent.com/92688864/162413320-3723efd3-443c-42e7-8e77-feb820199881.gif)
+![react-first-time-02-compressed](https://user-images.githubusercontent.com/92688864/162413357-41081d85-9ec0-4838-a6c3-26e7514144ca.gif)
+![react-first-time-03-compressed](https://user-images.githubusercontent.com/92688864/162413361-ad040079-d217-459d-ae57-834e1bfeda22.gif)
